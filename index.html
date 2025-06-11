@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prosphere – Knowledge. Network. Next Level.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      min-height: 100vh;
+      padding-top: 50px;
+      text-align: center;
+    }
+
+    img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #222;
+    }
+
+    p.tagline {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-student {
+      background-color: #4da3ff;
+      color: white;
+    }
+
+    .btn-professional {
+      background-color: #34d399;
+      color: white;
+    }
+
+    .form-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 500px;
+      display: none;
+      text-align: left;
+    }
+
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="prosphere-logo.png" alt="Prosphere Logo" class="logo" />
+  <h1>Prosphere</h1>
+  <p class="tagline">Knowledge. Network. Next Level.</p>
+
+  <button class="btn btn-student" onclick="showForm('student')">I'm a Student</button>
+  <button class="btn btn-professional" onclick="showForm('professional')">I'm a Professional</button>
+
+  <!-- Student Form -->
+  <div class="form-box" id="studentForm">
+    <h3>Student Onboarding</h3>
+
+    <p><strong>What Prosphere offers you:</strong></p>
+    <ul>
+      <li>🎯 Get doubts solved by real professionals</li>
+      <li>📚 Access summaries, updates & peer strategies</li>
+      <li>🤝 Join your batch & attempt-specific discussion groups</li>
+      <li>🧠 Share your journey, learn from others, and stay ahead</li>
+    </ul>
+
+    <label>Full Name:</label>
+    <input type="text" id="studentName" placeholder="Your Name" />
+
+    <label>Course:</label>
+    <select id="studentCourse">
+      <option>CA Foundation</option>
+      <option>CA Inter</option>
+      <option>CA Final</option>
+      <option>CS Executive</option>
+      <option>CS Professional</option>
+      <option>Law 3Y</option>
+      <option>Law 5Y</option>
+    </select>
+
+    <label>Exam Attempt:</label>
+    <input type="text" id="examMonth" placeholder="e.g., May 2025" />
+
+    <label>City:</label>
+    <input type="text" id="studentCity" placeholder="City" />
+
+    <label>Coaching Institute (Optional):</label>
+    <input type="text" id="coaching" placeholder="Coaching name" />
+
+    <label>Preferred Learning Format:</label>
+    <select id="learning">
+      <option>Live Classes</option>
+      <option>Recorded Courses</option>
+      <option>Notes</option>
+      <option>Peer Help</option>
+    </select>
+
+    <button onclick="submitStudent()">Submit</button>
+  </div>
+
+  <!-- Professional Form -->
+  <div class="form-box" id="proForm">
+    <h3>Professional Onboarding</h3>
+
+    <p><strong>Why join Prosphere:</strong></p>
+    <ul>
+      <li>🧠 Discuss complex real-world queries with peers</li>
+      <li>📢 Share updates, changes, insights from your field</li>
+      <li>🤝 Collaborate, build regional or topic-specific groups</li>
+      <li>🔎 Get visibility & optionally hire or connect</li>
+    </ul>
+
+    <label>Full Name:</label>
+    <input type="text" id="proName" placeholder="Your Full Name" />
+
+    <label>Profession:</label>
+    <select id="proField">
+      <option>Chartered Accountant</option>
+      <option>Lawyer</option>
+      <option>Company Secretary</option>
+      <option>Other</option>
+    </select>
+
+    <label>Years of Experience:</label>
+    <input type="number" id="proExperience" placeholder="Years of Practice" />
+
+    <label>Area of Expertise:</label>
+    <select id="expertise">
+      <option>Taxation</option>
+      <option>Audit</option>
+      <option>Corporate Law</option>
+      <option>Litigation</option>
+      <option>Insolvency & IBC</option>
+      <option>Compliance / SEBI</option>
+    </select>
+
+    <label>Would You Join a Trusted Peer Group?</label>
+    <select id="groupInterest">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <label>Firm/Practice Name (Optional):</label>
+    <input type="text" id="firm" placeholder="Firm / Company Name" />
+
+    <label>City / Region:</label>
+    <input type="text" id="city" placeholder="Your City" />
+
+    <label>LinkedIn or Website (Optional):</label>
+    <input type="text" id="link" placeholder="LinkedIn or Website" />
+
+    <button onclick="submitProfessional()">Submit</button>
+  </div>
+
+  <div class="footer">
+    © 2025 Prosphere. All rights reserved.
+  </div>
+
+  <script>
+    function showForm(type) {
+      document.getElementById('studentForm').style.display = (type === 'student') ? 'block' : 'none';
+      document.getElementById('proForm').style.display = (type === 'professional') ? 'block' : 'none';
+    }
+
+    function submitStudent() {
+      const name = document.getElementById('studentName').value;
+      const course = document.getElementById('studentCourse').value;
+      const examMonth = document.getElementById('examMonth').value;
+      const city = document.getElementById('studentCity').value;
+      const coaching = document.getElementById('coaching').value;
+      const learning = document.getElementById('learning').value;
+
+      alert(`Welcome, ${name}!\nCourse: ${course} (${examMonth})\nCity: ${city}\nCoaching: ${coaching}\nPreferred Format: ${learning}`);
+    }
+
+    function submitProfessional() {
+      const name = document.getElementById('proName').value;
+      const field = document.getElementById('proField').value;
+      const exp = document.getElementById('proExperience').value;
+      const area = document.getElementById('expertise').value;
+      const group = document.getElementById('groupInterest').value;
+      const firm = document.getElementById('firm').value;
+      const city = document.getElementById('city').value;
+      const link = document.getElementById('link').value;
+
+      alert(`Welcome to Prosphere, ${name}!\nProfession: ${field}, ${exp} years\nArea: ${area}\nPeer Group: ${group}\nFirm: ${firm}\nCity: ${city}\nLinkedIn: ${link}`);
+    }
+  </script>
+
+</body>
+</html>
